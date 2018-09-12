@@ -24,10 +24,10 @@ class Square():
         if kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-            if (self.height != self.width):
+            if 'width' in kwargs.keys() and self.height != self.width:
                 self.height = self.width
-        else:
-            self.height = self.width = 0
+            if 'height' in kwargs.keys() and self.width != self.height:
+                self.width = self.height
 
     def area(self):
         """ Return area of the square """
@@ -41,6 +41,7 @@ class Square():
         """ Return string representation """
         return "{}/{}".format(self.width, self.height)
 
+
 if __name__ == "__main__":
 
     s = Square(width=12, height=9)
@@ -50,3 +51,27 @@ if __name__ == "__main__":
     print(s.area())
     print(s.perimeter())
     print(s.__str__())
+    print("--------------------------------")
+    q = Square(width=2)
+    print(q)
+    print(q.width)
+    print(q.height)
+    print(q.area())
+    print(q.perimeter())
+    print(q.__str__())
+    print("--------------------------------")
+    u = Square(height=3)
+    print(u)
+    print(u.width)
+    print(u.height)
+    print(u.area())
+    print(u.perimeter())
+    print(u.__str__())
+    print("--------------------------------")
+    a = Square()
+    print(a)
+    print(a.width)
+    print(a.height)
+    print(a.area())
+    print(a.perimeter())
+    print(a.__str__())
